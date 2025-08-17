@@ -1,63 +1,445 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kristopher Thompson | Data Analyst</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Data Analyst specializing in business intelligence, SQL analysis, and strategic insights. View my portfolio of end-to-end analytical projects.">
     <style>
-        body {
-            background-color: #242943;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        * {
             margin: 0;
-            text-align: center;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .container {
-            max-width: 600px;
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 0.5em;
-            font-weight: bold;
-        }
-        p {
-            font-size: 1.2em;
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: rgba(255, 255, 255, 0.75);
+            color: #333;
+            background-color: #f8f9fa;
         }
-        .headline {
-            font-size: 1.4em;
-            margin-bottom: 1.5em;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        .button {
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .hero .location {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 3rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
             display: inline-block;
-            background-color: #ffffff;
-            color: #242943;
             padding: 15px 30px;
+            border-radius: 8px;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: background-color 0.3s, color 0.3s;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
         }
-        .button:hover {
-            background-color: #dddddd;
+
+        .btn-primary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-primary:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-white {
+            background: white;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: #2c3e50;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: #666;
+            border-bottom: 1px solid #eee;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            color: #667eea;
+            text-decoration: none;
+            margin-left: 0.5rem;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: #e9ecef;
+            color: #495057;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #667eea;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .cta-section {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Kristopher Thompson</h1>
-        <p class="headline">Google Certified Data Analyst | SQL, Python, Power BI, Tableau</p>
-        <p>My full data analytics portfolio is currently under construction and will be live here soon.</p>
-        <p>In the meantime, you can view my full professional profile and certifications on LinkedIn.</p>
-        <a href="https://www.linkedin.com/in/kristopher-thompson" class="button">View My LinkedIn Profile</a>
-    </div>
-</body>
+    <header class="hero">
+        <div class="container">
+            <h1>Kristopher Thompson</h1>
+            <p class="subtitle">Data Analyst | Business Intelligence | Strategic Insights</p>
+            <p class="location">📍 Raton, New Mexico</p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="mailto:kris@kristopherthompson.me" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </header>
 
+    <section id="about" class="section section-white">
+        <div class="container">
+            <h2 class="section-title">About</h2>
+            <div class="about-grid">
+                <div class="about-content">
+                    <h3>Background</h3>
+                    <p>
+                        Analytical professional transitioning into data analysis with a unique background spanning logistics operations, user experience consulting, and hospitality management. My diverse experience has strengthened my ability to translate complex data into actionable business insights.
+                    </p>
+                    <p>
+                        I combine technical proficiency in SQL and statistical analysis with real-world business understanding gained from roles in operations management and client consulting. This perspective enables me to bridge the gap between data insights and strategic decision-making.
+                    </p>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Data Analysis</h4>
+                            <ul class="skill-list">
+                                <li>SQL & Database Management</li>
+                                <li>Statistical Analysis</li>
+                                <li>Data Visualization</li>
+                                <li>Business Intelligence</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Technical Skills</h4>
+                            <ul class="skill-list">
+                                <li>SQLite, PostgreSQL</li>
+                                <li>LibreOffice, Excel</li>
+                                <li>Data Quality Assessment</li>
+                                <li>Geospatial Analysis</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <div class="contact-item">
+                        📧 <a href="mailto:kris@kristopherthompson.me">kris@kristopherthompson.me</a>
+                    </div>
+                    <div class="contact-item">
+                        💼 <a href="https://www.linkedin.com/in/kristopher-thompson" target="_blank">LinkedIn Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        💻 <a href="https://github.com/AnalysrKris" target="_blank">GitHub Portfolio</a>
+                    </div>
+                    <div class="contact-item">
+                        🌐 <a href="https://kristopherthompson.me">kristopherthompson.me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        🚴‍♀️ Chicago Bike Share Analysis
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Chicago Bike Share User Behavior Analysis</h3>
+                        <p class="project-description">
+                            End-to-end analysis of 763,000+ bike share trips revealing distinct behavioral patterns between member and casual users. Identified key insights driving operational strategy and marketing recommendations.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">SQL</span>
+                            <span class="tag">Statistical Analysis</span>
+                            <span class="tag">Business Intelligence</span>
+                            <span class="tag">Data Visualization</span>
+                            <span class="tag">Strategic Recommendations</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="projects/bike-share-analysis.html" class="project-link">View Project</a>
+                            <a href="https://github.com/AnalysrKris/chi-bike-tripdata" class="project-link" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Placeholder for future projects -->
+                <div class="project-card" style="opacity: 0.6;">
+                    <div class="project-image">
+                        📊 Coming Soon
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Next Analysis Project</h3>
+                        <p class="project-description">
+                            Additional data analysis projects showcasing different business domains and analytical techniques are in development.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">In Progress</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Drive Data-Driven Decisions</h2>
+            <p>Let's discuss how analytical insights can solve your business challenges</p>
+            <div class="hero-cta">
+                <a href="mailto:kris@kristopherthompson.me" class="btn btn-primary">Contact Me</a>
+                <a href="https://www.linkedin.com/in/kristopher-thompson" class="btn btn-secondary" target="_blank">Connect on LinkedIn</a>
+            </div>
+        </div>
+    </section>
+</body>
 </html>
