@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicago Bike Share Analysis | Kristopher Thompson</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-white {
+            background: white;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .problem-statement {
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .insight-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: 1px solid #e9ecef;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .insight-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .insight-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .insight-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        .cta-section {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #2c3e50;
+        }
+
+        .tech-stack {
+            background: #f8f9fa;
+            padding: 3rem 0;
+        }
+
+        .tech-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .tech-item {
+            background: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            color: #495057;
+            border: 1px solid #dee2e6;
+        }
+
+        .nav-back {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-back:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .insights-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <a href="../index.html" class="nav-back">← Back to Portfolio</a>
+        <div class="container">
+            <h1>Chicago Bike Share Analysis</h1>
+            <p>End-to-end business intelligence project analyzing 763k+ trips to identify member vs casual user behavior patterns</p>
+        </div>
+    </div>
+
+    <section class="section section-white">
+        <div class="container">
+            <h2 class="section-title">Business Challenge</h2>
+            <p class="problem-statement">
+                Chicago's bike share system needed insights into user behavior differences to optimize operations, improve marketing targeting, and enhance strategic planning. Through comprehensive analysis of over 763,000 trips from July 2025, I identified distinct usage patterns that inform data-driven business decisions.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Key Insights</h2>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-number">3x</div>
+                    <h3 class="insight-title">Round Trip Behavior</h3>
+                    <p class="insight-description">
+                        Casual users are 3x more likely to take round trips (10.2% vs 3.3%), indicating recreational focus vs transportation-oriented member usage.
+                    </p>
+                    <img src="https://raw.githubusercontent.com/AnalysrKris/chi-bike-tripdata/main/visualization/casual_v_member_roundtrip.png" alt="Round trip behavior comparison chart" style="width: 100%; border-radius: 8px; margin-top: 1rem;">
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-number">4-6pm</div>
+                    <h3 class="insight-title">Asymmetric Commute Patterns</h3>
+                    <p class="insight-description">
+                        Members show strong afternoon rush peaks but weak morning usage, suggesting multimodal transportation strategies.
+                    </p>
+                    <img src="https://raw.githubusercontent.com/AnalysrKris/chi-bike-tripdata/main/visualization/peak_times.png" alt="Peak usage times analysis chart" style="width: 100%; border-radius: 8px; margin-top: 1rem;">
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-number">65%</div>
+                    <h3 class="insight-title">Electric Bike Preference</h3>
+                    <p class="insight-description">
+                        Both groups prefer electric bikes equally (66% vs 64%), ruling out bike type as a segmentation strategy.
+                    </p>
+                    <img src="https://raw.githubusercontent.com/AnalysrKris/chi-bike-tripdata/main/visualization/bike_preference.png" alt="Bike type preference comparison chart" style="width: 100%; border-radius: 8px; margin-top: 1rem;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-stack">
+        <div class="container">
+            <h2 class="section-title">Technical Approach</h2>
+            <div class="tech-list">
+                <span class="tech-item">SQL & SQLite</span>
+                <span class="tech-item">Statistical Analysis</span>
+                <span class="tech-item">Geospatial Calculations</span>
+                <span class="tech-item">Data Visualization</span>
+                <span class="tech-item">Business Intelligence</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Explore the Full Analysis</h2>
+            <p>Dive deeper into the methodology, code, and business recommendations</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/AnalysrKris/chi-bike-tripdata" class="btn btn-primary" target="_blank">
+                    View GitHub Repository
+                </a>
+                <a href="https://github.com/AnalysrKris/chi-bike-tripdata/blob/main/methodology/docs/executive_summary.md" class="btn btn-secondary" target="_blank">
+                    Read Executive Summary
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
