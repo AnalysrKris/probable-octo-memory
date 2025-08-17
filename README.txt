@@ -1,32 +1,48 @@
-Forty by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+# Kristopher Thompson - Portfolio Website
 
+**Personal portfolio showcasing data analysis projects and professional experience**
 
-This is Forty, my latest and greatest addition to HTML5 UP and, per its incredibly
-creative name, my 40th (woohoo)! It's built around a grid of "image tiles" that are
-set up to smoothly transition to secondary landing pages (for which a separate page
-template is provided), and includes a number of neat effects (check out the menu!),
-extra features, and all the usual stuff you'd expect. Hope you dig it!
+🌐 **Live Site**: [kristopherthompson.me](https://kristopherthompson.me)
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+## About
 
-(* = not included)
+Professional portfolio website highlighting my transition into data analysis with a focus on business intelligence and strategic insights. The site showcases end-to-end analytical projects demonstrating technical proficiency and business acumen.
 
-AJ
-aj@lkn.io | @ajlkn
+## Featured Projects
 
+### Chicago Bike Share Analysis
+- **Analysis of 763,000+ bike share trips** revealing user behavior patterns
+- **SQL-based data manipulation** with statistical validation
+- **Business recommendations** for operations and marketing strategy
+- **View Project**: [kristopherthompson.me/projects/bike-share-analysis.html](https://kristopherthompson.me/projects/bike-share-analysis.html)
+- **GitHub Repository**: [chi-bike-tripdata](https://github.com/AnalysrKris/chi-bike-tripdata)
 
-Credits:
+## Technical Stack
 
-	Demo Images:
-		Unsplash (unsplash.com)
+- **Frontend**: HTML5, CSS3, Responsive Design
+- **Hosting**: GitHub Pages with custom domain
+- **Design**: Mobile-first, professional aesthetic
+- **Performance**: Optimized for fast loading and accessibility
 
-	Icons:
-		Font Awesome (fontawesome.io)
+## Site Structure
 
-	Other:
-		jQuery (jquery.com)
-		Scrollex (github.com/ajlkn/jquery.scrollex)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+```
+├── index.html                    # Homepage with about and projects
+├── projects/
+│   └── bike-share-analysis.html  # Featured project showcase
+└── LICENSE                       # MIT License
+```
+
+## Contact
+
+- **Email**: [kris@kristopherthompson.me](mailto:kris@kristopherthompson.me)
+- **LinkedIn**: [kristopher-thompson](https://www.linkedin.com/in/kristopher-thompson)
+- **GitHub**: [AnalysrKris](https://github.com/AnalysrKris)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+*Portfolio demonstrating real-world analytical problem-solving and professional communication skills.*
